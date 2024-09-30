@@ -2,11 +2,6 @@
 
 #### Composer
 
-add composer.json
-```
-"jfoza/php-random-string": "^1.0"
-```
-or execute
 ```
 $ composer require jfoza/php-random-string
 ```
@@ -15,11 +10,23 @@ $ composer require jfoza/php-random-string
 ```php
 use JFoza\PhpRandomString\RandomStringHelper;
 
+$basicString = RandomStringHelper::basicGenerate();
+$alphaString = RandomStringHelper::alphaGenerate();
+$alnumString = RandomStringHelper::alnumGenerate();
+$strings = RandomStringHelper::stringsGenerate();
 $numericString = RandomStringHelper::numericGenerate();
+$noZeroString = RandomStringHelper::noZeroGenerate();
 $md5String = RandomStringHelper::md5Generate();
+$sha1String = RandomStringHelper::sha1Generate();
 
 echo $numericString;
+echo $alphaString;
+echo $alnumString;
+echo $strings;
+echo $numericString;
+echo $noZeroString;
 echo $md5String;
+echo $sha1String;
 
 ```
 
