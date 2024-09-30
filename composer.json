@@ -1,0 +1,21 @@
+{
+  "name": "jfoza/php-random-string",
+  "description": "Library to generate random strings using the PHP language.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "giuseppe",
+      "email": "gfozza@hotmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "JFoza\\PhpRandomString\\": "Src/"
+    }
+  }
+}

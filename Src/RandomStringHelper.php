@@ -1,0 +1,64 @@
+<?php
+
+namespace JFoza\PhpRandomString;
+
+class RandomStringHelper
+{
+    public static function basicGenerate(): int
+    {
+        return mt_rand();
+    }
+
+    public static function alphaGenerate(int $len = 8): string
+    {
+        $pool = '#abcdefghilkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        return substr(str_shuffle(str_repeat($pool, ceil($len / strlen($pool)))), 0, $len);
+    }
+
+    public static function alnumGenerate(int $len = 8, bool $upper = false, bool $lower = false): string
+    {
+        $pool = '0123456789#abcdefghilkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        $result = substr(str_shuffle(str_repeat($pool, ceil($len / strlen($pool)))), 0, $len);
+
+        return match (true)
+        {
+            $upper => strtoupper($result),
+            $lower => strtolower($result),
+
+            default => $result
+        };
+    }
+
+    public static function stringsGenerate(int $len = 8): string
+    {
+        $pool = 'abcdefghilkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        return substr(str_shuffle(str_repeat($pool, ceil($len / strlen($pool)))), 0, $len);
+    }
+
+    public static function numericGenerate(int $len = 8): string
+    {
+        $pool = '0123456789';
+
+        return substr(str_shuffle(str_repeat($pool, ceil($len / strlen($pool)))), 0, $len);
+    }
+
+    public static function noZeroGenerate(int $len = 8): string
+    {
+        $pool = '123456789';
+
+        return substr(str_shuffle(str_repeat($pool, ceil($len / strlen($pool)))), 0, $len);
+    }
+
+    public static function md5Generate(): string
+    {
+        return md5(uniqid(mt_rand()));
+    }
+
+    public static function sha1Generate(): string
+    {
+        return sha1(uniqid(mt_rand(), true));
+    }
+}
